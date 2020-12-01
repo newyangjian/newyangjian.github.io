@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MySQL | 杨健的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、什么是数据库数据库数据的仓库，主要解决数据存储和管理的问题，实现数据的持久化 管理数据：能够非常方便的实现对数据的CRUD。 1234C - Create - 新增数据R - Read - 读取数据	U - Update - 编辑数据	D - Delete - 删除数据  持久化：1把数据从不能长久保存数据的存储介质转移到长久保存数据的存储介质，简单的说就是把数据从内存转移到硬盘  二、数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="http://example.com/2020/11/15/MySQL/index.html">
+<meta property="og:site_name" content="杨健的博客">
+<meta property="og:description" content="一、什么是数据库数据库数据的仓库，主要解决数据存储和管理的问题，实现数据的持久化 管理数据：能够非常方便的实现对数据的CRUD。 1234C - Create - 新增数据R - Read - 读取数据	U - Update - 编辑数据	D - Delete - 删除数据  持久化：1把数据从不能长久保存数据的存储介质转移到长久保存数据的存储介质，简单的说就是把数据从内存转移到硬盘  二、数据库">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-15T09:26:58.000Z">
+<meta property="article:modified_time" content="2020-11-22T04:50:00.615Z">
+<meta property="article:author" content="杨健">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="杨健的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">杨健的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/MySQL/" class="article-date">
+  <time datetime="2020-11-15T09:26:58.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、什么是数据库"><a href="#一、什么是数据库" class="headerlink" title="一、什么是数据库"></a>一、什么是数据库</h4><h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><p><code>数据的仓库，主要解决数据存储和管理的问题，实现数据的持久化</code></p>
+<p>管理数据：能够非常方便的实现对数据的CRUD。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C - <span class="keyword">Create</span> - 新增数据</span><br><span class="line">R - <span class="keyword">Read</span> - 读取数据</span><br><span class="line">	U - <span class="keyword">Update</span> - 编辑数据</span><br><span class="line">	D - <span class="keyword">Delete</span> - 删除数据</span><br></pre></td></tr></table></figure>
+
+<h5 id="持久化："><a href="#持久化：" class="headerlink" title="持久化："></a>持久化：</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把数据从不能长久保存数据的存储介质转移到长久保存数据的存储介质，简单的说就是把数据从内存转移到硬盘</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、数据库分类"><a href="#二、数据库分类" class="headerlink" title="二、数据库分类"></a>二、数据库分类</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">关系型数据库</span><br><span class="line">	1970</span><br><span class="line">    特点：</span><br><span class="line">    	1.理论基础：关系代数和集合论</span><br><span class="line">        2.具体表象：用二维表保存数据</span><br><span class="line">        	行：记录（record）</span><br><span class="line">            列：字段（field）</span><br><span class="line">        3.编程语言：SQL(结构化查询语言)</span><br><span class="line">        	DDL(数据定义语言)：<span class="keyword">create</span> / <span class="keyword">drop</span> /<span class="keyword">alter</span></span><br><span class="line">            DML(数据操作语言)：<span class="keyword">insert</span> / <span class="keyword">delete</span> / <span class="keyword">update</span></span><br><span class="line">            DQL(数据查询语言)：<span class="keyword">select</span></span><br><span class="line">            DCL(数据控制语言):<span class="keyword">grant</span> / <span class="keyword">revoke</span></span><br><span class="line">     产品：</span><br><span class="line">    	<span class="keyword">Oracle</span></span><br><span class="line">        MySQL(*)</span><br><span class="line">        PostgreSQL</span><br><span class="line">        <span class="keyword">SQL</span> <span class="keyword">Server</span></span><br><span class="line">        DB2</span><br><span class="line">NOSQL（非关系型数据库） <span class="comment">----&gt;更大符合大数据时代的需求</span></span><br><span class="line">NewSQL</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、使用MySQL"><a href="#三、使用MySQL" class="headerlink" title="三、使用MySQL"></a>三、使用MySQL</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">MySQL的配置文件：/etc/my.cnf</span><br><span class="line">	客户端（命令行工具）：</span><br><span class="line">    	链接MySQL：mysql -u root -h 服务器的IP地址 -p</span><br><span class="line">       (链接Redis：redis-server <span class="comment">--port 主机 --requirepass 密码 &gt; redis.log &amp;)</span></span><br><span class="line"><span class="comment">-----------------------------------数据库------------------------------------------------</span></span><br><span class="line">    显示所有数据库：</span><br><span class="line">    	<span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line">	创建数据库</span><br><span class="line">    	<span class="keyword">create</span> <span class="keyword">database</span> school <span class="keyword">default</span> <span class="keyword">charset</span> utf8mb4;</span><br><span class="line">    删除数据库</span><br><span class="line">    <span class="keyword">drop</span> <span class="keyword">database</span> 数据库名称;  </span><br><span class="line">    <span class="keyword">drop</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">exists</span> 数据库名称;</span><br><span class="line">    修改数据库</span><br><span class="line">    	<span class="keyword">alter</span> <span class="keyword">database</span> school <span class="keyword">default</span> <span class="keyword">charset</span> utf8mb4</span><br><span class="line">    切换数据库</span><br><span class="line">    <span class="keyword">use</span> <span class="keyword">database</span> 数据库名称;</span><br><span class="line"><span class="comment">-----------------------------------表------------------------------------------------</span></span><br><span class="line">    显示所有表</span><br><span class="line">    	<span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line">    创建二位表</span><br><span class="line">    	<span class="keyword">create</span> <span class="keyword">table</span> tb_student</span><br><span class="line">        (</span><br><span class="line">            stuid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">            stuname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">            stusex <span class="built_in">boolean</span> <span class="keyword">default</span> <span class="number">1</span> <span class="keyword">comment</span> <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">            stubirth <span class="built_in">date</span> <span class="keyword">comment</span> <span class="string">&#x27;出生日期&#x27;</span>,</span><br><span class="line">            primary <span class="keyword">key</span> (stuid)</span><br><span class="line">        )<span class="keyword">engine</span>=<span class="keyword">innodb</span> <span class="keyword">default</span> <span class="keyword">charset</span> utf8mb4;</span><br><span class="line">    	</span><br><span class="line">    	innodb - 支持行级锁，能够应对高并发访问；支持事务，保证数据的强一致；</span><br><span class="line">    			 所以这个引擎最适合今天的互联网应用。</span><br><span class="line">    	</span><br><span class="line">    	主键列(primary key)：一张表中能够唯一确定一条记录的列我们可以将其设置为主键列，</span><br><span class="line">    		   				主键列不能重复，主键列也不允许为空值。</span><br><span class="line">    	显示表结构</span><br><span class="line">    		desc tb_student;</span><br><span class="line">    	显示建表语句</span><br><span class="line">    		<span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> tb_student;</span><br><span class="line">   		删除表</span><br><span class="line">   			<span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> tb_student;</span><br><span class="line">   		修改表</span><br><span class="line">   			<span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">add</span> <span class="keyword">column</span> stuaddr <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">default</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">   			<span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">drop</span> <span class="keyword">column</span> stuaddr;</span><br><span class="line">   			<span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">modify</span> <span class="keyword">column</span> stusex <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">default</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line">   			<span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">change</span> <span class="keyword">column</span> stusex stugender <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">default</span> <span class="string">&#x27;M&#x27;</span>;		 <span class="keyword">alter</span> tbale</span><br><span class="line">       		添加约束</span><br><span class="line">        	<span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">add</span> <span class="keyword">constraint</span> fk_student_collid </span><br><span class="line">        	<span class="keyword">foreign</span> <span class="keyword">key</span>(collid) <span class="keyword">references</span> tb_college(collid);</span><br><span class="line">   			修改表的字符集：</span><br><span class="line">   			<span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">convert</span> <span class="keyword">to</span> <span class="keyword">charset</span> utf8mb4;</span><br><span class="line">   		插入数据</span><br><span class="line">   			<span class="keyword">insert</span> <span class="keyword">into</span> tb_student <span class="keyword">values</span> (<span class="number">1001</span>,<span class="string">&#x27;杨健&#x27;</span>,<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;1997-02-05&#x27;</span>);</span><br><span class="line">   			<span class="keyword">insert</span> <span class="keyword">into</span> tb_student (stuid,stuname) <span class="keyword">values</span> (<span class="number">1002</span>,<span class="string">&#x27;王大锤&#x27;</span>);</span><br><span class="line">   			<span class="keyword">insert</span> <span class="keyword">into</span> tb_student (stuid,stuname,stugender) <span class="keyword">values</span> </span><br><span class="line">   											(<span class="number">1003</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;M&#x27;</span>),</span><br><span class="line">   											(<span class="number">1004</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="keyword">default</span>),</span><br><span class="line">   											(<span class="number">1005</span>,<span class="string">&#x27;小敏&#x27;</span>,<span class="string">&#x27;F&#x27;</span>);</span><br><span class="line">   		删除数据</span><br><span class="line">   			<span class="keyword">delete</span> <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuid=<span class="number">1005</span>;(指定主键删除最靠谱)</span><br><span class="line">   			删全表</span><br><span class="line">   			<span class="keyword">truncate</span> tb_student;</span><br><span class="line">   		更新操作</span><br><span class="line">   			<span class="keyword">update</span> tb_student <span class="keyword">set</span> stubirth=<span class="string">&#x27;1992-5-6&#x27;</span> <span class="keyword">where</span> stuid=<span class="number">1003</span>;</span><br><span class="line">   			</span><br><span class="line">   		查询数据</span><br><span class="line">   			<span class="keyword">select</span> * <span class="keyword">from</span> tb_student;</span><br><span class="line">   			row - 行</span><br><span class="line">   			column -列</span><br><span class="line">  			学院表（编号、名称、介绍）</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="1-学生表"><a href="#1-学生表" class="headerlink" title="1. 学生表"></a>1. 学生表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_student</span><br><span class="line">        (</span><br><span class="line">            stuid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">            stuname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">            stusex <span class="built_in">boolean</span> <span class="keyword">default</span> <span class="number">1</span> <span class="keyword">comment</span> <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">            stubirth <span class="built_in">date</span> <span class="keyword">comment</span> <span class="string">&#x27;出生日期&#x27;</span>,</span><br><span class="line">            primary <span class="keyword">key</span> (stuid)</span><br><span class="line">        )<span class="keyword">engine</span>=<span class="keyword">innodb</span> <span class="keyword">default</span> <span class="keyword">charset</span> utf8mb4;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-创建一个学院表（编号、名称、介绍）"><a href="#2-创建一个学院表（编号、名称、介绍）" class="headerlink" title="2. 创建一个学院表（编号、名称、介绍）"></a>2. 创建一个学院表（编号、名称、介绍）</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">创建学院表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_academy</span><br><span class="line">(</span><br><span class="line">    acid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment <span class="keyword">comment</span> <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">    acname <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">    acintroduce <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">comment</span> <span class="string">&#x27;介绍&#x27;</span>,</span><br><span class="line">    primary <span class="keyword">key</span> (acid)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tb_academy <span class="keyword">values</span> (<span class="number">001</span>,<span class="string">&#x27;成都职业学院&#x27;</span>,<span class="string">&#x27;无&#x27;</span>),(<span class="number">002</span>,<span class="string">&#x27;广安职业技术学院&#x27;</span>,<span class="string">&#x27;无&#x27;</span>),(<span class="number">003</span>,<span class="string">&#x27;成都师范学院&#x27;</span>,<span class="string">&#x27;无&#x27;</span>);</span><br><span class="line"></span><br><span class="line">auto_increment <span class="comment"># 编号自动递增</span></span><br><span class="line">一个人有一个身份证号码，一个身份证号码对应一个人。实体“人”和实体“身份证号码”存在一对一的联系</span><br><span class="line">一个项目具有一个项目主管，一个项目主管可管理多个项目。则实体“项目主管”与实体“项目”存在一对多的联系</span><br><span class="line">一个设备可以用在多个项目中，一个项目可使用多种设备。实体“设备”与实体“项目”存在多对多的联系。</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">add</span> <span class="keyword">column</span> acid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">外键（foreigin key）约束：</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb_student <span class="keyword">add</span> <span class="keyword">constraint</span> fk_student_acid</span><br><span class="line"><span class="keyword">foreign</span> <span class="keyword">key</span>(acid) <span class="keyword">references</span> tb_academy(acid);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-创建老师表"><a href="#3-创建老师表" class="headerlink" title="3. 创建老师表"></a>3. 创建老师表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1.创建老师表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_teacher</span><br><span class="line">(</span><br><span class="line">    teaid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;工号&#x27;</span>,</span><br><span class="line">    teaname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">    acid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;所属学院&#x27;</span>,</span><br><span class="line">    primary <span class="keyword">key</span>(teaid)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tb_teacher <span class="keyword">values</span> (<span class="number">001</span>,<span class="string">&#x27;张老师&#x27;</span>),(<span class="number">002</span>,<span class="string">&#x27;李老师&#x27;</span>),(<span class="number">003</span>,<span class="string">&#x27;杨老师&#x27;</span>);</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb_teacher <span class="keyword">add</span> <span class="keyword">constraint</span> fk_teacher_acid <span class="keyword">foreign</span> <span class="keyword">key</span>(acid) <span class="keyword">references</span> tb_academy(acid);</span><br><span class="line"></span><br><span class="line">删除外键约束</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb_teacher <span class="keyword">drop</span> <span class="keyword">foreign</span> <span class="keyword">key</span> fk_teacher_acid;</span><br><span class="line"></span><br><span class="line">2.创建老师表 <span class="comment">--- 直接加外键</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_teacher</span><br><span class="line">(</span><br><span class="line">    teaid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;工号&#x27;</span>,</span><br><span class="line">    teaname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">    acid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;所属学院&#x27;</span>,</span><br><span class="line">    primary <span class="keyword">key</span>(teaid),</span><br><span class="line">    <span class="keyword">foreign</span> <span class="keyword">key</span>(acid) <span class="keyword">references</span> tb_academy(acid)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>外键约束建立了两张表之间的参照完整性，有外键约束的存在无效的数据就无法录，但是外键约束对性能有明显的影响，所有实际项目中有可能会根据需要去掉外键约束。</p>
+<h5 id="4-创建课程表-tb-course-（编号-couid-、名称-couname-、学分-credit-、开课时间-begin-date-、授课老师-tid-）"><a href="#4-创建课程表-tb-course-（编号-couid-、名称-couname-、学分-credit-、开课时间-begin-date-、授课老师-tid-）" class="headerlink" title="4. 创建课程表(tb_course)（编号(couid)、名称(couname)、学分(credit)、开课时间(begin_date)、授课老师(tid)）"></a>4. 创建课程表(tb_course)（编号(couid)、名称(couname)、学分(credit)、开课时间(begin_date)、授课老师(tid)）</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_course</span><br><span class="line">(</span><br><span class="line">    couid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">    couname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">comment</span> <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">    credit <span class="built_in">integer</span> <span class="keyword">comment</span> <span class="string">&#x27;学分&#x27;</span>,</span><br><span class="line">    begin_date <span class="built_in">date</span> <span class="keyword">comment</span> <span class="string">&#x27;开课时间&#x27;</span>,</span><br><span class="line">    tid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="keyword">comment</span> <span class="string">&#x27;授课老师&#x27;</span>,</span><br><span class="line">    primary <span class="keyword">key</span>(couid),</span><br><span class="line">    <span class="keyword">foreign</span> <span class="keyword">key</span>(tid) <span class="keyword">references</span> tb_teacher(teaid)</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-选课记录表-tb-record-（编号-recid-、学号-sid-、课程编号-cid-、选课日期-select-date-、考试成绩-score-）"><a href="#5-选课记录表-tb-record-（编号-recid-、学号-sid-、课程编号-cid-、选课日期-select-date-、考试成绩-score-）" class="headerlink" title="5. 选课记录表(tb_record)（编号(recid)、学号(sid)、课程编号(cid)、选课日期(select_date)、考试成绩(score)）"></a>5. 选课记录表(tb_record)（编号(recid)、学号(sid)、课程编号(cid)、选课日期(select_date)、考试成绩(score)）</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_record</span><br><span class="line">(</span><br><span class="line">	recid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">	<span class="keyword">sid</span> <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">	cid <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;课程编号&#x27;</span>,</span><br><span class="line">	select_date <span class="built_in">date</span> <span class="keyword">comment</span> <span class="string">&#x27;选课日期&#x27;</span>,</span><br><span class="line">	score <span class="built_in">integer</span> <span class="keyword">comment</span> <span class="string">&#x27;考试成绩&#x27;</span>,</span><br><span class="line">	primary <span class="keyword">key</span>(recid),</span><br><span class="line">	<span class="keyword">foreign</span> <span class="keyword">key</span>(<span class="keyword">sid</span>) <span class="keyword">references</span> tb_student(stuid),</span><br><span class="line">	<span class="keyword">foreign</span> <span class="keyword">key</span>(cid) <span class="keyword">references</span> tb_course(couid)</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- 插入选课数据</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tb_record (recid,<span class="keyword">sid</span>,cid,select_date,score) <span class="keyword">values</span></span><br><span class="line">(<span class="number">1</span>,<span class="number">1003</span>,<span class="number">1</span>,<span class="string">&#x27;2020-12-6&#x27;</span>,<span class="number">98</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="number">1008</span>,<span class="number">9</span>,<span class="string">&#x27;2020-12-6&#x27;</span>,<span class="number">88</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="number">1010</span>,<span class="number">6</span>,<span class="string">&#x27;2020-12-6&#x27;</span>,<span class="number">68</span>),</span><br><span class="line">(<span class="number">4</span>,<span class="number">1003</span>,<span class="number">1</span>,<span class="string">&#x27;2020-12-6&#x27;</span>,<span class="number">98</span>),</span><br><span class="line">(<span class="number">5</span>,<span class="number">1003</span>,<span class="number">6</span>,<span class="string">&#x27;2020-12-6&#x27;</span>,<span class="number">98</span>),</span><br><span class="line">(<span class="number">6</span>,<span class="number">1009</span>,<span class="number">5</span>,<span class="string">&#x27;2020-11-15&#x27;</span>,<span class="number">96</span>),</span><br><span class="line">(<span class="number">7</span>,<span class="number">1010</span>,<span class="number">5</span>,<span class="string">&#x27;2020-11-3&#x27;</span>,<span class="number">85</span>),</span><br><span class="line">(<span class="number">8</span>,<span class="number">1010</span>,<span class="number">1</span>,<span class="string">&#x27;2020-10-9&#x27;</span>,<span class="number">64</span>),</span><br><span class="line">(<span class="number">9</span>,<span class="number">1006</span>,<span class="number">9</span>,<span class="string">&#x27;2020-11-3&#x27;</span>,<span class="number">78</span>),</span><br><span class="line">(<span class="number">10</span>,<span class="number">1006</span>,<span class="number">9</span>,<span class="string">&#x27;2020-11-23&#x27;</span>,<span class="number">78</span>),</span><br><span class="line">(<span class="number">11</span>,<span class="number">1004</span>,<span class="number">9</span>,<span class="string">&#x27;2020-11-3&#x27;</span>,<span class="number">78</span>),</span><br><span class="line">(<span class="number">12</span>,<span class="number">1002</span>,<span class="number">6</span>,<span class="string">&#x27;2020-11-29&#x27;</span>,<span class="number">89</span>),</span><br><span class="line">(<span class="number">13</span>,<span class="number">1006</span>,<span class="number">5</span>,<span class="string">&#x27;2020-11-25&#x27;</span>,<span class="number">58</span>),</span><br><span class="line">(<span class="number">14</span>,<span class="number">1009</span>,<span class="number">3</span>,<span class="string">&#x27;2020-11-13&#x27;</span>,<span class="number">78</span>),</span><br><span class="line">(<span class="number">15</span>,<span class="number">1003</span>,<span class="number">3</span>,<span class="string">&#x27;2020-11-27&#x27;</span>,<span class="number">77</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>MySQL图形化客户端工具：Navicat for MySQL(导航猫)、SQLyog CE / EE(海豚)</p>
+<p>数据库设计：<br>  ~ 指导理论：范式理论（Normal Form）—&gt; 规范程度<br>    - 1NF：列不可再拆分<br>    - 2NF：所有非主键字段都完全依赖主键字段</p>
+<p>​    商品编号  订单号 商品名称 价格  订单金额  支付状态</p>
+<p>​    商品编号  商品名称 价格……</p>
+<p>​    订单号  订单金额  支付状态……….</p>
+<p>​    - 3NF: 消除传递依赖<br>  -——————————————-<br>​    - BCNF<br>​    - 4NF<br>​    - 5NF</p>
+<p>  ~ ER图（实体关系图）<br>    E：实体（Entity，二维表）—&gt; 矩形框<br>    实体的属性 —&gt; 椭圆框<br>    R：关系（Relationship）—&gt; 菱形框<br>    关系的重数<br>      - 1:1<br>      - 1:N<br>      - M:N    </p>
+<hr>
+<p>  1.就是无重复的列</p>
+<ol start="2">
+<li><p>  要求数据库表中的每个实例或行必须可以被唯一地区分 ， <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F/3193760">第二范式</a>就是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9D%9E%E4%B8%BB%E5%B1%9E%E6%80%A7/3462646">非主属性</a>非部分依赖于主关键字。</p>
+</li>
+<li><p>第三范式就是属性不依赖于其它<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9D%9E%E4%B8%BB%E5%B1%9E%E6%80%A7/3462646">非主属性</a>。</p>
+</li>
+</ol>
+<p>tingint(3)  –  显示三位</p>
+<p> unsigened （无符号） zerofill(零填充)</p>
+<p>curdate() - 现在日期</p>
+<p>now() - 当前日期和时间</p>
+<p>unique</p>
+<p>decimal</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/MySQL/" data-id="ckhjufsx30003jwvpc6oe984y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/15/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          网络-vim-相关命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/15/Select-%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MySQL - Select - 查询</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastapi/" rel="tag">fastapi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/fastapi/" style="font-size: 10px;">fastapi</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/01/fastapi/">fastapi</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/MongoDB/">Mongo</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/redis/">redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Select%20-%20%E6%A1%88%E4%BE%8B/">MySQL - Select - 查询-案列</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/SQL-%E4%BC%98%E5%8C%96/">SQL-优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 杨健<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

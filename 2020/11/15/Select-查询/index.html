@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MySQL - Select - 查询 | 杨健的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="select . . . .  from t1, t2, t3, . . . . where . . . .. and . . . or. . .  group by . . . with rollup having . . . and . . . or . . . . order by . .. asc . . . desc . . . limit . . . offset . . .  一、s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL - Select - 查询">
+<meta property="og:url" content="http://example.com/2020/11/15/Select-%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:site_name" content="杨健的博客">
+<meta property="og:description" content="select . . . .  from t1, t2, t3, . . . . where . . . .. and . . . or. . .  group by . . . with rollup having . . . and . . . or . . . . order by . .. asc . . . desc . . . limit . . . offset . . .  一、s">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-15T09:26:58.000Z">
+<meta property="article:modified_time" content="2020-11-22T04:56:31.966Z">
+<meta property="article:author" content="杨健">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="杨健的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">杨健的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Select-查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/Select-%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time datetime="2020-11-15T09:26:58.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL - Select - 查询
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>select . . . . </p>
+<p>from t1, t2, t3, . . . .</p>
+<p>where . . . .. and . . . or. . . </p>
+<p>group by . . . with rollup</p>
+<p>having . . . and . . . or . . . .</p>
+<p>order by . .. asc . . . desc . . .</p>
+<p>limit . . . offset . . . </p>
+<h4 id="一、select查询"><a href="#一、select查询" class="headerlink" title="一、select查询"></a>一、select查询</h4><p>– 查询所有课程名称及学分(投影和别名)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> couname <span class="keyword">as</span> 课程名称,coucredit <span class="keyword">as</span> 学分 <span class="keyword">from</span> tb_course;</span><br></pre></td></tr></table></figure>
+
+<p>between  —  在两者之间</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询所有80后学生的姓名、性别和出生日期(筛选) - 筛选80后</span></span><br><span class="line"><span class="keyword">select</span> stuname, stubirth <span class="keyword">from</span> tb_student</span><br><span class="line"><span class="keyword">where</span> stubirth <span class="keyword">between</span> <span class="string">&#x27;1990-1-1&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;1999-12-31&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>decimal(4,1)  — 四位有效数字，小数点后面一位  –&gt;  表示成绩</p>
+<p>投影和别名： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stuname <span class="keyword">as</span> 姓名, <span class="keyword">case</span> stusex <span class="keyword">when</span> <span class="number">1</span> <span class="keyword">then</span> <span class="string">&#x27;男&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;女&#x27;</span> <span class="keyword">as</span> 性别 <span class="keyword">end</span> <span class="keyword">from</span> tb_student;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="二、模糊查询-like"><a href="#二、模糊查询-like" class="headerlink" title="二、模糊查询 - like"></a>二、模糊查询 - like</h4><p>– 查询姓”杨“的学生姓名和性别(模糊)<br>– % - 通配符（wildcard）匹配零个或任意多个字符<br>– - 通配符 - 刚好匹配一个字符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stuname,stusex <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuname <span class="keyword">like</span> <span class="string">&#x27;杨%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询姓”杨“名字两个字的学生姓名和性别(模糊)</span></span><br><span class="line"><span class="keyword">select</span> stuname,stusex <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuname <span class="keyword">like</span> <span class="string">&#x27;杨_&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询姓”杨“名字三个字的学生姓名和性别(模糊)</span></span><br><span class="line"><span class="keyword">select</span> stuname,stusex <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuname <span class="keyword">like</span> <span class="string">&#x27;杨__&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="三、-查空值"><a href="#三、-查空值" class="headerlink" title="三、 查空值"></a>三、 查空值</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询没有录入家庭住址的学生姓名(空值)</span></span><br><span class="line"><span class="keyword">select</span> stuname <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuaddr <span class="keyword">is</span> <span class="literal">null</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询录入了家庭住址的学生姓名(非空值)</span></span><br><span class="line"><span class="keyword">select</span> stuname <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuaddr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>; </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="四、去重-distinct"><a href="#四、去重-distinct" class="headerlink" title="四、去重 - distinct"></a>四、去重 - distinct</h4><p>distinct  —- 去重</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询学生选课的所有日期(去重)</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> seldate <span class="keyword">from</span> tb_record;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询学生的家庭住址(去重)</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> stuaddr <span class="keyword">from</span> tb_student</span><br><span class="line"><span class="keyword">where</span> stuaddr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>– 查询学生的家庭住址(去重)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> stuaddr <span class="keyword">from</span> tb_student</span><br><span class="line"><span class="keyword">where</span> stuaddr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>–将查询结果插入到指定的表中</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_temp</span><br><span class="line">(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">integer</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">addr <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">primary <span class="keyword">key</span>(<span class="keyword">id</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tb_temp (addr) <span class="keyword">select</span> <span class="keyword">distinct</span> stuaddr <span class="keyword">from</span> tb_student <span class="keyword">where</span> stuaddr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="五、排序-order-by-–-asc-升序-–-desc-降序"><a href="#五、排序-order-by-–-asc-升序-–-desc-降序" class="headerlink" title="五、排序 order by  –  asc(升序) –  desc(降序)"></a>五、排序 order by  –  asc(升序) –  desc(降序)</h4><p>– 查询男学生的姓名和生日按年龄从大到小排列(排序)<br>– order by 字段 – 默认排升序（从小到大）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--  asc - 升序 / desc 降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> stuname,stubirth <span class="keyword">from</span> tb_student</span><br><span class="line"><span class="keyword">where</span> stusex=<span class="number">1</span> <span class="keyword">order</span> <span class="keyword">by</span> stubirth <span class="keyword">asc</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> stuname,stusex,stubirth <span class="keyword">from</span> tb_student</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> stusex <span class="keyword">asc</span>, stubirth;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p> 使用ORDER BY和LIMIT的组合，能够找出一个列中最高或最低的值。</p>
+</blockquote>
+<p>​    例子演示如何找出最昂贵物品的值：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- tb_products:为一个产品表 prod_price: 表示价格</span></span><br><span class="line"><span class="keyword">select</span> prod_price</span><br><span class="line"><span class="keyword">from</span> tb_products</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> prod_price <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在给出ORDER BY子句时，应该保证它位于FROM子句之后。</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="六、聚合函数"><a href="#六、聚合函数" class="headerlink" title="六、聚合函数"></a>六、聚合函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- max / min / sum / avg / count</span></span><br><span class="line"><span class="comment">-- 查询年龄最大的学生的出生日期(聚合函数)</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">min</span>(stubirth) <span class="keyword">from</span> tb_student;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询年龄最小的学生的出生日期(聚合函数)</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">max</span>(stubirth) <span class="keyword">from</span> tb_student;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询课程编号为1111的课程的平均成绩(筛选和聚合函数)</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(score) <span class="keyword">from</span> tb_record <span class="keyword">where</span> cid=<span class="number">1111</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询学号为1001的学生所有课程的平均分(筛选和聚合函数)</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(score) <span class="keyword">from</span> tb_record <span class="keyword">where</span> <span class="keyword">sid</span>=<span class="number">1001</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="七、子查询"><a href="#七、子查询" class="headerlink" title="七、子查询"></a>七、子查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询年龄最大的学生的姓名(子查询)</span></span><br><span class="line"><span class="keyword">select</span> stuname <span class="keyword">from</span> tb_student </span><br><span class="line"><span class="keyword">where</span> stubirth=(<span class="keyword">select</span> <span class="keyword">min</span>(stubirth) <span class="keyword">from</span> tb_student);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询女学生年龄最小的学生姓名和年龄(子查询+运算)</span></span><br><span class="line"><span class="keyword">select</span> stuname,<span class="keyword">floor</span>(<span class="keyword">datediff</span>(<span class="keyword">curdate</span>(),stubirth)/<span class="number">365</span>) <span class="keyword">as</span> stuage </span><br><span class="line"><span class="keyword">from</span> tb_student </span><br><span class="line"><span class="keyword">where</span> stubirth=(<span class="keyword">select</span> <span class="keyword">max</span>(stubirth) <span class="keyword">from</span> tb_student <span class="keyword">where</span> stusex=<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询选了两门以上的课程的学生姓名(子查询/分组条件/集合运算)</span></span><br><span class="line"><span class="keyword">select</span> stuname <span class="keyword">from</span> tb_student </span><br><span class="line"><span class="keyword">where</span> stuid <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">sid</span> <span class="keyword">from</span> tb_record</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">sid</span></span><br><span class="line"><span class="keyword">having</span> <span class="keyword">count</span>(<span class="keyword">sid</span>)&gt;<span class="number">2</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="八、连接查询"><a href="#八、连接查询" class="headerlink" title="八、连接查询"></a>八、连接查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询学生姓名、课程名称以及成绩(连接查询)</span></span><br><span class="line"><span class="keyword">select</span> stuname,couname,score</span><br><span class="line"><span class="keyword">from</span> tb_student t1, tb_course t2, tb_record</span><br><span class="line"><span class="keyword">where</span> t1.stuid=<span class="keyword">sid</span> <span class="keyword">and</span> t2.couid=cid <span class="keyword">and</span> score <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> score <span class="keyword">desc</span> <span class="keyword">limit</span> <span class="number">10</span> <span class="keyword">offset</span> <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询选课学生的姓名和平均成绩(子查询和连接查询)</span></span><br><span class="line"><span class="keyword">select</span> stuname,<span class="keyword">avg</span>(score) <span class="keyword">from</span> tb_student, tb_record</span><br><span class="line"><span class="keyword">where</span> stuid=<span class="keyword">sid</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">sid</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询每个学生的姓名和选课数量(左外连接和子查询)</span></span><br><span class="line"><span class="keyword">select</span> stuname, <span class="keyword">count</span>(<span class="keyword">sid</span>) <span class="keyword">from</span> tb_record, tb_student</span><br><span class="line"><span class="keyword">where</span> stuid=<span class="keyword">sid</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">sid</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/Select-%E6%9F%A5%E8%AF%A2/" data-id="ckho44yo80000c0vp3zt9b1e5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/15/MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MySQL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/15/%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">搜索命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastapi/" rel="tag">fastapi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/fastapi/" style="font-size: 10px;">fastapi</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/01/fastapi/">fastapi</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/MongoDB/">Mongo</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/redis/">redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Select%20-%20%E6%A1%88%E4%BE%8B/">MySQL - Select - 查询-案列</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/SQL-%E4%BC%98%E5%8C%96/">SQL-优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 杨健<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

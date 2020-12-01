@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>fastapi | 杨健的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234567891011121314151617181920212223云端服务器部署项目git clone --depth&#x3D;1 SSH地址	which python3	&#x2F;usr&#x2F;bin&#x2F;python3创建虚拟环境  pip install -U virtualenvvirtualenv --python&#x3D;$(which python3) venv激活虚拟环境source venv&#x2F;bin&#x2F;ac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fastapi">
+<meta property="og:url" content="http://example.com/2020/12/01/fastapi/index.html">
+<meta property="og:site_name" content="杨健的博客">
+<meta property="og:description" content="1234567891011121314151617181920212223云端服务器部署项目git clone --depth&#x3D;1 SSH地址	which python3	&#x2F;usr&#x2F;bin&#x2F;python3创建虚拟环境  pip install -U virtualenvvirtualenv --python&#x3D;$(which python3) venv激活虚拟环境source venv&#x2F;bin&#x2F;ac">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-01T05:39:53.000Z">
+<meta property="article:modified_time" content="2020-12-01T05:41:02.361Z">
+<meta property="article:author" content="杨健">
+<meta property="article:tag" content="fastapi">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="杨健的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">杨健的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-fastapi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/01/fastapi/" class="article-date">
+  <time datetime="2020-12-01T05:39:53.000Z" itemprop="datePublished">2020-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      fastapi
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">云端服务器部署项目</span><br><span class="line">git clone --depth=<span class="number">1</span> SSH地址</span><br><span class="line">	which python3</span><br><span class="line">	/usr/<span class="built_in">bin</span>/python3</span><br><span class="line">创建虚拟环境  pip install -U virtualenv</span><br><span class="line">virtualenv --python=$(which python3) venv</span><br><span class="line">激活虚拟环境</span><br><span class="line">source venv/<span class="built_in">bin</span>/activate</span><br><span class="line">安装依赖项</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">启动服务</span><br><span class="line">uvicorn main:app --host <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">什么是ORM</span><br><span class="line"></span><br><span class="line">即Object-Relationl Mapping，它的作用是在关系型数据库和对象之间作一个映射，这样，我们在具体的操作数据库的时候，就不需要再去和复杂的SQL语句打交道，只要像平时操作对象一样操作它就可以了 。</span><br><span class="line"></span><br><span class="line">ORM - 对象关系映射</span><br><span class="line">映射到数据库MySQL中的数据表</span><br><span class="line">类名 ---&gt; 表名</span><br><span class="line">对象 ----&gt; 一条记录</span><br><span class="line">对象.属性 ----&gt;  字段</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>数据库的配置 batabase.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.rom <span class="keyword">import</span> sessionmaker</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.ext.declarative <span class="keyword">import</span> declaretive_base</span><br><span class="line"></span><br><span class="line">SQLALCHEMY_DATABASE_URL = <span class="string">&quot;mysql://root:Yangjian.618@39.102.124.170:3306/hrs?charset=utf8mb4&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立会话</span></span><br><span class="line">db_session_factory = sessionmaker(autocommit=<span class="literal">False</span>, autoflush=<span class="literal">False</span>, bind=engine)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明基类</span></span><br><span class="line">Base = declarative_base()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建数据模型 models.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> database <span class="keyword">import</span> Base</span><br><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> Column, Integer, String, ForeignKey</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> relationship</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模型类对应数据库中的表</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Department</span>(<span class="params">Base</span>):</span></span><br><span class="line">    __tablename__ = <span class="string">&#x27;tb_dept&#x27;</span></span><br><span class="line">    </span><br><span class="line">    no = Column(<span class="string">&#x27;dno&#x27;</span>, Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    name = column(<span class="string">&#x27;dname&#x27;</span>, String(<span class="number">10</span>))</span><br><span class="line">	location = Column(<span class="string">&#x27;dloc&#x27;</span>, String(<span class="number">20</span>))</span><br><span class="line">    </span><br><span class="line">    emps= relationship(<span class="string">&#x27;Employee&#x27;</span>, backref=<span class="string">&#x27;department&#x27;</span>)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span>(<span class="params">Base</span>):</span></span><br><span class="line">    __tablename__ = <span class="string">&#x27;tb_emp&#x27;</span></span><br><span class="line">    </span><br><span class="line">    no = Column(<span class="string">&#x27;eno&#x27;</span>, Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    name = Column(<span class="string">&#x27;ename&#x27;</span>, String(<span class="number">20</span>))</span><br><span class="line">    job = Column(String(<span class="number">20</span>))</span><br><span class="line">    manager_id = Column(<span class="string">&#x27;mgr&#x27;</span>,Integer, nullable=<span class="literal">True</span>)</span><br><span class="line">    salary = Column(<span class="string">&#x27;sal&#x27;</span>, Integer)</span><br><span class="line">    comm = Column(Integer, nullable=<span class="literal">True</span>)</span><br><span class="line">    department_id = Column(<span class="string">&#x27;dno&#x27;</span>, Integer, Foreignkey(<span class="string">&#x27;tb_dept.don&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>实现接口数据服务化  main.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> database <span class="keyword">import</span> db_session_factory</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Department, Employee</span><br><span class="line"><span class="keyword">import</span> uvicorn</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI, HTTPException, Depends, Query</span><br><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"><span class="keyword">from</span>  pydantic.fields <span class="keyword">import</span> Optional</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sqlalchemy.exc <span class="keyword">import</span> SQLAlchemyError</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> Session, load_only, defer, joinedload</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dept</span>(<span class="params">BaseModel</span>):</span></span><br><span class="line">    no: <span class="built_in">int</span></span><br><span class="line">   	name: <span class="built_in">str</span></span><br><span class="line">    location: <span class="built_in">str</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_db_session</span>():</span></span><br><span class="line">    session = db_session_factory()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">yield</span> session</span><br><span class="line">        session.commit()</span><br><span class="line">    <span class="keyword">except</span> SQLALchemyError <span class="keyword">as</span> err:</span><br><span class="line">        session.rollback()</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        session.close()</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="meta">@app.get(&#x27;/&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span>():</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;hello world!&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(&#x27;/api/depts&#x27;, status_code=201)</span></span><br><span class="line"><span class="comment"># 依赖注入（函数会调式注入）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_dept</span>(<span class="params">dept: Dept, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;新增部门&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> session.query(Department).get(dept.no):</span><br><span class="line">		params = dept.<span class="built_in">dict</span>()</span><br><span class="line">        session.add(Department(**params))</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;新增部门成功&#x27;</span>&#125;</span><br><span class="line">   	<span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;部门存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.delete(&#x27;/api/depts/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_one_dept</span>(<span class="params">no: <span class="built_in">int</span>, dept: Dept, session: Session = Dpends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;删除指定的部门&quot;&quot;&quot;</span></span><br><span class="line">    department = session.query(Department).get(no)</span><br><span class="line">    <span class="keyword">if</span> department:</span><br><span class="line">        session.delete(department)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;message&#x27;</span>:<span class="string">&#x27;删除部门成功&#x27;</span>&#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.put(&#x27;/api/depts/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_dept</span>(<span class="params">no: <span class="built_in">int</span>, dept: Dept, sesstion: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;更新部门&quot;&quot;&quot;</span></span><br><span class="line">    department = session.query(Department).get(no)</span><br><span class="line">    <span class="keyword">if</span> deparment:</span><br><span class="line">        session.query(Department).<span class="built_in">filter</span>(Departmtent.no == no).update(dapt)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;更新部门成功！&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.get(&#x27;/api/depts&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_depts</span>(<span class="params">session: Session = Dpends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示所有部门&quot;&quot;&quot;</span></span><br><span class="line">    depts = session.query(Department).<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;depts&#x27;</span>:depts&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(&#x27;/api/depts/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_one_dept</span>(<span class="params">no: <span class="built_in">int</span>, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示指定的部门&quot;&quot;&quot;</span></span><br><span class="line">    department = session.query(Department).get(no)</span><br><span class="line">    <span class="keyword">if</span> department:</span><br><span class="line">         <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;dept&#x27;</span>:department&#125;        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="meta">@app.get(&#x27;/api/emps&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_emps</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">	page: <span class="built_in">int</span> = Query(<span class="params"><span class="number">1</span>, gt=<span class="number">0</span>, description=<span class="string">&#x27;页码必须是大于0的整数&#x27;</span></span>),</span></span></span><br><span class="line"><span class="function"><span class="params">    size: <span class="built_in">int</span> = Query(<span class="params"><span class="number">5</span>, ge=<span class="number">5</span>, le=<span class="number">50</span></span>),</span></span></span><br><span class="line"><span class="function"><span class="params">    session: Session = Depends(<span class="params">get_db_session</span>)</span></span></span><br><span class="line"><span class="function"><span class="params"></span>):</span></span><br><span class="line">    emps = session.query(Employee)\</span><br><span class="line">        .options(load_only(Employee.name, Employee.job))\</span><br><span class="line">        .offset((page - <span class="number">1</span>) * size).limit(size)\</span><br><span class="line">        .<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;emps&#x27;</span>: emps&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(&#x27;/api/emps/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_one_emp</span>(<span class="params">no: <span class="built_in">int</span>, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    emp = session.query(Employee)\</span><br><span class="line">    	.options(defer(<span class="string">&#x27;manager_id&#x27;</span>), defer(<span class="string">&#x27;depertment_id&#x27;</span>))\</span><br><span class="line">        .options(joinedload(Employee.dempartment))\</span><br><span class="line">        .one_or_none()</span><br><span class="line">    <span class="keyword">if</span> imp:</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;emp&#x27;</span>: emp&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPExcption(status_code=<span class="number">404</span>, detail=<span class="string">&#x27;没有对应的员工信息&#x27;</span>)  </span><br><span class="line">	</span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.post(&#x27;/api/emps&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_emp</span>(<span class="params">emp: Emp, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> session.query(Empolyee).get(emp.no):</span><br><span class="line">        session.add(Employee(**emp.<span class="built_in">dict</span>()))</span><br><span class="line">    	<span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;emp&#x27;</span>:emp&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;员工已经存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.put(&#x27;/api/emps/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_emp</span>(<span class="params">no: <span class="built_in">int</span>, emp: Emp, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    e1 = session.query(Employee).get(no)</span><br><span class="line">    <span class="keyword">if</span> e1:</span><br><span class="line">        session.query(Employee).<span class="built_in">filter</span>(Employee.no == no).update(emp)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;emp&#x27;</span>:e1&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;员工不存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.delete(&#x27;/api/emps/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_one_emp</span>(<span class="params">no: <span class="built_in">int</span>, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    emp = session.query(Employee).get(no)</span><br><span class="line">    <span class="keyword">if</span> emp:</span><br><span class="line">        session.delete(emp)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;删除部门成功&#x27;</span>&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;员工不存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.get(&#x27;/api/emps&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_emps</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">	page: <span class="built_in">int</span>, Query(<span class="params"><span class="number">1</span>, gt=<span class="number">0</span>, description=<span class="string">&#x27;页码必须是大于0的整数&#x27;</span></span>)，</span></span></span><br><span class="line"><span class="function"><span class="params">    size: <span class="built_in">int</span>, Query(<span class="params"><span class="number">5</span>, ge=<span class="number">5</span>, le=<span class="number">50</span></span>),</span></span></span><br><span class="line"><span class="function"><span class="params">    session: Session = Depends(<span class="params">get_db_session</span>)</span></span></span><br><span class="line"><span class="function"><span class="params"></span>):</span></span><br><span class="line">	query = session.query(Employee)\</span><br><span class="line">    		.options(load_only(Employee.name, Employee.job))\</span><br><span class="line">        	.order_by(Employee.salary.desc())\</span><br><span class="line">     emps = query.<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;emps&#x27;</span>:emps&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(&#x27;/api/emps/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_one_emp</span>(<span class="params">no:<span class="built_in">int</span>, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    emp = session.query(Employee)\</span><br><span class="line">    	 .<span class="built_in">filter</span>(Employee.no == no)\</span><br><span class="line">    	 .options(defer(<span class="string">&#x27;manager_id&#x27;</span>), defer(<span class="string">&#x27;department_id&#x27;</span>)\</span><br><span class="line">         .one_or_none()</span><br><span class="line">    <span class="keyword">if</span> emp:</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;emp&#x27;</span>:emp&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">404</span>, detail=<span class="string">&#x27;没有对应的员工信息&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(&#x27;/api/emps&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_emp</span>(<span class="params">emp: Emp, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> session.query(Employee).get(emp.no):</span><br><span class="line">        session.add(Employee(**emp.<span class="built_in">dict</span>()))</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;emp&#x27;</span>:emp&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;员工已经存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.put(&#x27;/api/emps/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_emp</span>(<span class="params">no: <span class="built_in">int</span>, emp: Emp, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    e1 = session.query(Employee).get(no)</span><br><span class="line">    <span class="keyword">if</span> e1:</span><br><span class="line">        session.query(Employee).<span class="built_in">filter</span>(Employee.no == no).update(emp)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1000</span>, <span class="string">&#x27;emp&#x27;</span>:e1&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;员工不存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(&#x27;/api/emps/&#123;no&#125;&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_one_emp</span>(<span class="params">no: <span class="built_in">int</span>, session: Session = Depends(<span class="params">get_db_session</span>)</span>):</span></span><br><span class="line">    emp = session.query(Employee).get(no)</span><br><span class="line">    <span class="keyword">if</span> emp:</span><br><span class="line">        session.delete(emp)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;删除部门成功&#x27;</span>&#125;</span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&#x27;员工不存在&#x27;</span>)</span><br><span class="line"></span><br><span class="line">                  </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    uvicorn.run(<span class="string">&#x27;main:app&#x27;</span>, reload=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/01/fastapi/" data-id="cki5jzsn30000xovpfrvq6aax" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fastapi/" rel="tag">fastapi</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/23/MongoDB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mongo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastapi/" rel="tag">fastapi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/fastapi/" style="font-size: 10px;">fastapi</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/01/fastapi/">fastapi</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/MongoDB/">Mongo</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/redis/">redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Select%20-%20%E6%A1%88%E4%BE%8B/">MySQL - Select - 查询-案列</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/SQL-%E4%BC%98%E5%8C%96/">SQL-优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 杨健<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

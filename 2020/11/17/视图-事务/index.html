@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MySQL - Select - 视图 - 事务 | 杨健的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="视图 - 事务 视图 1234567891011121314151617181920-- 视图是查询的快照create view v_emp_basic asselect eno,ename,job,mgr,dno from tb_emp;create user &amp;#x27;gueset&amp;#x27;@&amp;#x27;%&amp;#x27; identified by &amp;#x27;Yangjian.618&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL - Select - 视图 - 事务">
+<meta property="og:url" content="http://example.com/2020/11/17/%E8%A7%86%E5%9B%BE-%E4%BA%8B%E5%8A%A1/index.html">
+<meta property="og:site_name" content="杨健的博客">
+<meta property="og:description" content="视图 - 事务 视图 1234567891011121314151617181920-- 视图是查询的快照create view v_emp_basic asselect eno,ename,job,mgr,dno from tb_emp;create user &amp;#x27;gueset&amp;#x27;@&amp;#x27;%&amp;#x27; identified by &amp;#x27;Yangjian.618&amp;#x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-17T09:26:58.000Z">
+<meta property="article:modified_time" content="2020-11-19T00:44:59.834Z">
+<meta property="article:author" content="杨健">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="杨健的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">杨健的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-视图-事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/17/%E8%A7%86%E5%9B%BE-%E4%BA%8B%E5%8A%A1/" class="article-date">
+  <time datetime="2020-11-17T09:26:58.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL - Select - 视图 - 事务
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="视图-事务"><a href="#视图-事务" class="headerlink" title="视图 - 事务"></a>视图 - 事务</h2><ol>
+<li><p>视图</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 视图是查询的快照</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v_emp_basic <span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> eno,ename,job,mgr,dno <span class="keyword">from</span> tb_emp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;gueset&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">&#x27;Yangjian.618&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建视图</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">view</span> v_dept_stat <span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> dname,<span class="keyword">ifnull</span>(total,<span class="number">0</span>) <span class="keyword">as</span> total</span><br><span class="line"><span class="keyword">from</span> tb_dept t1 <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span></span><br><span class="line">(<span class="keyword">select</span> dno,<span class="keyword">count</span>(eno) <span class="keyword">as</span> total <span class="keyword">from</span> tb_emp <span class="keyword">group</span> <span class="keyword">by</span> dno) t2</span><br><span class="line"><span class="keyword">on</span> t1.dno=t2.dno;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dname,total <span class="keyword">from</span> v_dept_stat;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除视图</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> v_dept_stat;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 更新视图 原表也更新了</span></span><br><span class="line"><span class="keyword">update</span> v_emp_basic <span class="keyword">set</span> ename=<span class="string">&#x27;张二锋&#x27;</span> <span class="keyword">where</span> eno=<span class="number">7800</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="2-事务"><a href="#2-事务" class="headerlink" title="2. 事务"></a>2. 事务</h3>   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 开启事务（多个操作要么全做，要么全不做）</span></span><br><span class="line"><span class="comment">-- begin;</span></span><br><span class="line"><span class="keyword">start</span> <span class="keyword">transaction</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tb_emp;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tb_dept;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 提交</span></span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 回滚</span></span><br><span class="line"><span class="keyword">rollback</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>了解</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 索引（二分查找（折半查找）、哈希存储（set）、B+树（层次型数据结构））</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 1. 写一个Python函数，函数的参数是一个有序列表和待查找的元素，函数返回元素在列表中的位置，如果没有这个元素，返回-1，二分查找</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. 了解下Python集合（set）底层存储结构 — 哈希存储、哈希冲突、两个魔术方法：__hash__ 、 __eq__</span></span><br><span class="line"><span class="keyword">set</span>的去重是通过两个函数__hash__和__eq__结合实现的。</span><br><span class="line"><span class="number">1</span>、当两个变量的哈希值不相同时，就认为这两个变量是不同的</span><br><span class="line"><span class="number">2</span>、当两个变量哈希值一样时，调用__eq__方法，当返回值为<span class="literal">True</span>时认为这两个变量是同一个，应该去除一个。返回<span class="literal">FALSE</span>时，不去重</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. 层次型数据结构到底是一个怎样的结构</span></span><br><span class="line">层次数据结构是以记录类型结点的有向“树”或“森林”，树的主要特征之一是除根结点外，任何结点有且仅有一个父结点</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/17/%E8%A7%86%E5%9B%BE-%E4%BA%8B%E5%8A%A1/" data-id="ckho44yoa0002c0vp5g00eaz2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/18/SQL-%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SQL-优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/15/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网络-vim-相关命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastapi/" rel="tag">fastapi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/fastapi/" style="font-size: 10px;">fastapi</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/01/fastapi/">fastapi</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/MongoDB/">Mongo</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/redis/">redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Select%20-%20%E6%A1%88%E4%BE%8B/">MySQL - Select - 查询-案列</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/SQL-%E4%BC%98%E5%8C%96/">SQL-优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 杨健<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

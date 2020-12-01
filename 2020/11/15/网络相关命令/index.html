@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>网络-vim-相关命令 | 杨健的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有关网络相关的命令wget - 网络下载器    wget https: &#x2F;&#x2F;www.sohu.com&#x2F;    wget https: &#x2F;&#x2F;www.sohu.com&#x2F; -O sohu.htmlscp - 安全的文件拷贝（跨网络拷贝文件）    例如：scp sohu.html &amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x31;&amp;#48;&amp;#x32;&amp;#x2e;&amp;#x33;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络-vim-相关命令">
+<meta property="og:url" content="http://example.com/2020/11/15/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="杨健的博客">
+<meta property="og:description" content="有关网络相关的命令wget - 网络下载器    wget https: &#x2F;&#x2F;www.sohu.com&#x2F;    wget https: &#x2F;&#x2F;www.sohu.com&#x2F; -O sohu.htmlscp - 安全的文件拷贝（跨网络拷贝文件）    例如：scp sohu.html &amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#x31;&amp;#48;&amp;#x32;&amp;#x2e;&amp;#x33;&amp;#x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-15T09:26:58.000Z">
+<meta property="article:modified_time" content="2020-11-16T00:59:00.388Z">
+<meta property="article:author" content="杨健">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="杨健的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">杨健的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-网络相关命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2020-11-15T09:26:58.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络-vim-相关命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="有关网络相关的命令"><a href="#有关网络相关的命令" class="headerlink" title="有关网络相关的命令"></a>有关网络相关的命令</h4><p>wget - 网络下载器<br>    wget https: //<a target="_blank" rel="noopener" href="http://www.sohu.com/">www.sohu.com/</a><br>    wget https: //<a target="_blank" rel="noopener" href="http://www.sohu.com/">www.sohu.com/</a> -O sohu.html<br>scp - 安全的文件拷贝（跨网络拷贝文件）<br>    例如：scp sohu.html <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#x31;&#48;&#x32;&#x2e;&#x33;&#x35;&#46;&#x37;&#x33;">&#114;&#x6f;&#x6f;&#x74;&#64;&#x31;&#48;&#x32;&#x2e;&#x33;&#x35;&#46;&#x37;&#x33;</a>:root/code/<br>sftp - 安全的文件传输<br>ping - 网络可达性检测<br>    Ping to Death<br>    分布式拒绝服务攻击：Distributed Deny of Service<br>    DDoS高防服务（防D）—-&gt; 20w<br>ifconfig / ip —&gt; 本机网络信息<br>netstat - 查看网络端口使用状况<br>        -n:以数值的方式查询网络端口信息<br>        -l:（监听状态）<br>        -t:TCP(只查看TCP协议的链接)<br>        -p:process(进程)<br>ssh —&gt; 安全远程连接<br>如果公司有多台云服务器，可以从一台服务器连接到其他服务器<br>一般情况下，多台服务器中只有一台允许从公网直接访问，其他<br>服务器都要通过这台服务器使用ssh的方式进行连接，不允许从<br>公网直接访问，相当于做了物理隔离，而这台可以从公网通过<br> SSH直接访问的服务器，我们通常称之为跳板机（跳板服务器）。<br> ssh <a href="mailto:&#x72;&#x6f;&#111;&#116;&#64;&#52;&#x37;&#x2e;&#x31;&#48;&#x34;&#x2e;&#x33;&#x31;&#x2e;&#x31;&#51;&#56;">&#x72;&#x6f;&#111;&#116;&#64;&#52;&#x37;&#x2e;&#x31;&#48;&#x34;&#x2e;&#x33;&#x31;&#x2e;&#x31;&#51;&#56;</a></p>
+<h4 id="vim相关命令"><a href="#vim相关命令" class="headerlink" title="vim相关命令"></a>vim相关命令</h4><p>命令模式：所有的按键代表一个操作命令<br>    进入编辑模式: i / I / a / A / o / O<br>    移动光标:<br>        h / j / k / l —&gt; 配合数字使用<br>        0 / $ / w —&gt; 行首 / 行尾 / 下一个单词<br>        G / gg —&gt; 把光标移动到指定的行<br>        Ctrl+e / Ctrl+y —&gt; 翻行<br>        Ctrl+f / Ctrl+b —&gt; 翻页<br>    编辑内容:<br>        dd / d0 / d$ / dw —&gt; 删除<br>        u / Ctrl+r —&gt; 撤销 / 重做<br>        yy / p —&gt; 复制 / 黏贴<br>        保存退出：ZZ<br>编辑模式：可以编辑内容<br>        Esc 回到命令模式<br>末行模式：在最下面的一行进行操作（底线命令模式）<br>        ：/ ?<br>        退出：q / q! / wq / qa<br>        查找：/关键词 ?关键词<br>            n：正向搜索<br>            N：反向搜索<br>        替换：1,$ s/新闻/狗屎/<cgie><br>                c - confirm<br>                g - global<br>                i - ignore case<br>                e - erro<br>        设置：<br>            set nu / set nonu - 行号<br>            set hsl/ set nohls - 高亮<br>            set ruler / set noruler - 标尺<br>            set ts=4   - 制表键的空格数<br>            set expandtab - 把制表键变成空格<br>            set autoindent - 自动缩进<br>            syntax off / syntax on - 语法高亮<br>        映射快捷键：<br>            map &lt;快捷键&gt; ggGddi  命令模式下的快捷键<br>            imap &lt;快捷键&gt;  if <strong>name</strong>==”<strong>main</strong>“:  编辑模式下的快捷键<br>            inoremap  _main if <strong>name</strong> == ‘<strong>main</strong>‘:<br>        查看打开的文件<br>            ls<br>            b 编号<br>        拆分屏幕窗口<br>            vs / sp<br>            ctrl+w 切换窗口</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" data-id="ckhix1q5k0000l4vp2yikelq3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/17/%E8%A7%86%E5%9B%BE-%E4%BA%8B%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MySQL - Select - 视图 - 事务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/15/MySQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MySQL</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastapi/" rel="tag">fastapi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/fastapi/" style="font-size: 10px;">fastapi</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/01/fastapi/">fastapi</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/MongoDB/">Mongo</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/redis/">redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Select%20-%20%E6%A1%88%E4%BE%8B/">MySQL - Select - 查询-案列</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/SQL-%E4%BC%98%E5%8C%96/">SQL-优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 杨健<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
